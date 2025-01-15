@@ -34,7 +34,7 @@ jobs:
 
         - name: "Push the Docker image to the Hub"
           run: |
-            docker push oladapper/practice-image:1 
+            docker push dapper01/practice-image:1/practice-image:1 
        
         # - name: "Go to the repo for Helm"
         #   run: |
