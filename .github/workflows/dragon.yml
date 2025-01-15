@@ -50,7 +50,7 @@ jobs:
             git remote add test-mailer https://${{ secrets.NEW_TOKEN }}@github.com/dapper92/test-mailer.git
             git add .
             git commit -m "Updated helm"
-            git push Dragone master
+            git push origins master
 
         - name: npm install, build, and test
           run: |
