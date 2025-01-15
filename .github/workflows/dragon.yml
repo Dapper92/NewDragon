@@ -39,8 +39,8 @@ jobs:
         - name: "Go to the repo for Helm"
           run: |
 
-            git config --global user.email "melvinsamuel070@gmail.com"
-            git config --global user.name "melvinsamuel070"
+            git config --global user.email "oladapper@gmail.com"
+            git config --global user.name "dapper92"
             git clone https://github.com/dapper92/test-mailer.git test-mailer-helm
             cd test-mailer-helm/templates
             sed -i 's/test-mailer/test_mailer1/' deployment.yaml
