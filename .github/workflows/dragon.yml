@@ -36,21 +36,21 @@ jobs:
           run: |
             docker push dapper01/practice-image:1 
        
-        # - name: "Go to the repo for Helm"
-        #   run: |
+        - name: "Go to the repo for Helm"
+          run: |
 
-        #     git config --global user.email "melvinsamuel070@gmail.com"
-        #     git config --global user.name "melvinsamuel070"
-        #     git clone https://github.com/dapper92/NewDragon.git NewDragon-helm
-        #     cd Dragone-helm/templates
-        #     sed -i 's/dragone:1/dragone:2/' deployement.yaml
-        #     # sed -i 's/rev_app:1/rev_app:2/' service.yaml
-        #     cat deployement.yaml
-        #     # cat service.yaml
-        #     git remote add NewDragon https://${{ secrets.NEW_TOKEN }}@github.com/dapper92/NewDragon.git
-        #     git add .
-        #     git commit -m "Updated helm"
-        #     git push Dragone master
+            git config --global user.email "melvinsamuel070@gmail.com"
+            git config --global user.name "melvinsamuel070"
+            git clone https://github.com/dapper92/test-mailer.git test-mailer-helm
+            cd test-mailer-helm/templates
+            sed -i 's/test-mailer/test_mailer1/' deployment.yaml
+            # sed -i 's/testings:1/testings:2/' service.yaml
+            cat deployment.yaml
+            # cat service.yaml
+            git remote add test-mailer https://${{ secrets.NEW_TOKEN }}@github.com/dapper92/test-mailer.git
+            git add .
+            git commit -m "Updated helm"
+            git push Dragone master
 
         - name: npm install, build, and test
           run: |
