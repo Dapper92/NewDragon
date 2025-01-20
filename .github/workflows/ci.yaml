@@ -70,7 +70,7 @@ jobs:
             git commit -m "Updated helm 1"
             git push https://dapper92:${TOKEN_GITHUB}@github.com/dapper92/test-mailer origin
 
-      - name: "Upload artifact"
+      - name: "Upload the artifact"
         uses: actions/upload-artifact@v4
         with:
           name: dmailer
