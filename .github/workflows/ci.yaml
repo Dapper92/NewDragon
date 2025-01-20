@@ -67,7 +67,7 @@ jobs:
             cat deployment.yaml
             git remote add test-mailer https://dapper92:${TOKEN_GITHUB}@github.com/dapper92/test-mailer.git
             git add .
-            git commit -m "Updated helm 1"
+            git commit -m "Updated the helm 1"
             git push https://dapper92:${{ secrets.TOKEN_GITHUB }}@github.com/dapper92/test-mailer.git
 
 
@@ -76,7 +76,7 @@ jobs:
       - name: "Upload the artifact"
         uses: actions/upload-artifact@v4
         with:
-          name: dmailer
+          name: dmailer 
           path: .
           retention-days: 90
           compression-level: 9
