@@ -59,7 +59,7 @@ jobs:
         env:
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
         run: |
-            git config --global user.email "oladapper@gmail.com"
+            git config --global user.email "oladapolawal12@yahoo.com"
             git config --global user.name "dapper92"
             git clone https://github.com/dapper92/test-mailer.git test-mailer
             cd test-mailer/templates
