@@ -54,7 +54,7 @@ jobs:
         run: |
           docker push dapper01/practice-image:2     
 
-      - name: "Go to  repo for Helm"
+      - name: "Go to the repo for Helm"
         env:
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
         run: |
