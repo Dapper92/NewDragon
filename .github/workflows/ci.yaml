@@ -65,10 +65,11 @@ jobs:
             cd test-mailer/templates
             sed -i 's/practice-image:1/practice-image2/' deployment.yaml
             cat deployment.yaml
-            git remote add test-mailer https://x-access-token:${{ secrets.GIIT_TOKEN }}@github.com/dapper92/test-mailer.git
+            git remote add test-mailer https://dapper92:${TOKEN_GITHUB}@github.com/dapper92/test-mailer.git
             git add .
             git commit -m "Updated helm 1"
-            git push https://dapper92:${TOKEN_GITHUB:}@github.com/dapper92/test-mailer origin 
+            git push https://dapper92:${TOKEN_GITHUB}@github.com/dapper92/test-mailer origin
+
 
       - name: "Upload the artifact"
         uses: actions/upload-artifact@v4
