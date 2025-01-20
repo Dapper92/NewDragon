@@ -52,7 +52,7 @@ jobs:
 
       - name: "Push Image to  the Docker Hub"
         run: |
-          docker push dapper01/practice-image:1
+          docker push dapper01/practice-image:2
         # docker run -p 3000:3000 -d oluwaseun7/dmailer:lates 
 
       - name: "Go to the repo for Helm"
