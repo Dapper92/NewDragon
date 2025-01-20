@@ -112,11 +112,11 @@ jobs:
         run: npx eslint . -f json -o reports/lint.json
         continue-on-error: false
 
-      - name: "Run ESLint with Reviewdog"
-        uses: reviewdog/action-eslint@v1
-        with:
-          github_token: ${{ secrets.PAT_TOKEN }}
-          reporter: github-pr-review
+      # - name: "Run ESLint with Reviewdog"
+      #   uses: reviewdog/action-eslint@v1
+      #   with:
+      #     github_token: ${{ secrets.PAT_TOKEN }}
+      #     reporter: github-pr-review
 
 
       - name: "Download artifact"
