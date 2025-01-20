@@ -1,13 +1,13 @@
 export default [
   {
-    files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
+    files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+      ecmaVersion: "latest",
+      sourceType: "module",
     },
     rules: {
-      'no-unused-vars': 'warn',
-      'no-console': 'off',
+      "no-unused-vars": "warn",
+      "no-console": "off",
     },
   },
 ];
