@@ -59,16 +59,16 @@ jobs:
         env:
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
         run: |
-            # git config --global user.email "oladapper@gmail.com"
-            # git config --global user.name "oladapper92"
-            # git clone https://github.com/Oluwaseun186/doct.git dmailer2
-            # cd dmailer2/templates
-            # sed -i 's/practice-image:1/practice-image2/' deployment.yaml
-            # cat deployment.yaml
-            # git remote add dmailer2 https://x-access-token:${{ secrets.TOKEN_GITHUB }}@github.com/Oluwaseun186/doct.git
-            # git add .
-            # git commit -m "Updated helm 1"
-            # git push https://adewumibode7:${TOKEN_GITHUB}@github.com/Oluwaseun186/doct origin
+            git config --global user.email "oladapper@gmail.com"
+            git config --global user.name "oladapper92"
+            git clone https://github.com/dapper92/test-mailer.git dmailer2
+            cd dmailer2/templates
+            sed -i 's/practice-image:1/practice-image2/' deployment.yaml
+            cat deployment.yaml
+            git remote add dmailer2 https://x-access-token:${{ secrets.TOKEN_GITHUB }}@github.com/Oluwaseun186/doct.git
+            git add .
+            git commit -m "Updated helm 1"
+            git push https://adewumibode7:${TOKEN_GITHUB}@github.com/Oluwaseun186/doct origin
 
       - name: "Upload artifact"
         uses: actions/upload-artifact@v4
@@ -82,60 +82,60 @@ jobs:
           include-hidden-files: false
 
   
-  # Deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: pre-commit
-  #   steps:
-  #     - name: Checkout Github
-  #       uses: actions/checkout@v2
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: pre-commit
+    steps:
+      - name: Checkout Github
+        uses: actions/checkout@v2
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: 20
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
 
-  #     - name: "install Node Dependencies"
-  #       run: |
-  #         npm install
-
-
-  #     - name: "List artifacts"
-  #       run: ls -l .
-
-  #     - name: Generate Report
-  #       run: npm ci
-
-  #     - name: Run ESLint
-  #       run: npx eslint . -f json -o reports/lint.json
-  #       continue-on-error: false
-
-  #     - name: "Run ESLint with Reviewdog"
-  #       uses: reviewdog/action-eslint@v1
-  #       with:
-  #         github_token: ${{ secrets.PAT_TOKEN }}
-  #         reporter: github-pr-review
+      - name: "install Node Dependencies"
+        run: |
+          npm install
 
 
-  #     - name: "Download artifact"
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: dmailer
-  #         path: ./work.txt
-  #         if-no-files-found: warn
+      - name: "List artifacts"
+        run: ls -l .
+
+      - name: Generate Report
+        run: npm ci
+
+      - name: Run ESLint
+        run: npx eslint . -f json -o reports/lint.json
+        continue-on-error: false
+
+      - name: "Run ESLint with Reviewdog"
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.PAT_TOKEN }}
+          reporter: github-pr-review
+
+
+      - name: "Download artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: dmailer
+          path: ./work.txt
+          if-no-files-found: warn
           
-  #     - name: Send email
-  #       uses: dawidd6/action-send-mail@v4
-  #       with:
-  #         server_address: smtp.gmail.com
-  #         server_port: 465
-  #         username: ${{ secrets.EMAIL }}
-  #         password: ${{ secrets.PASSWORD }}
-  #         subject: "GitHub Action Notification"
-  #         body: "Hello! This is a test email sent from GitHub Actions. A new image has been built"
-  #         to: theoafactor@gmail.com, adewumibode7@gmail.com
-  #         from: ${{ secrets.EMAIL }}
-  #         secure: true # Set to false for non-TLS/SSL connections
-  #         tls: true
+      - name: Send email
+        uses: dawidd6/action-send-mail@v4
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL }}
+          password: ${{ secrets.PASSWORD }}
+          subject: "GitHub Action Notification"
+          body: "Hello! This is a test email sent from GitHub Actions. A new image has been built"
+          to: theoafactor@gmail.com, adewumibode7@gmail.com
+          from: ${{ secrets.EMAIL }}
+          secure: true # Set to false for non-TLS/SSL connections
+          tls: true
 
 
     
