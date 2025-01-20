@@ -62,12 +62,13 @@ jobs:
             git config --global user.name "dapper92"
             git clone https://github.com/dapper92/test-mailer.git test-mailer
             cd test-mailer/templates
-            sed -i 's/dapper01/practice-image:1/dapper01/practice-image:2/' deployment.yaml
-            cat deployment.yaml
+            sed -i 's/dapper01\/practice-image:1/dapper01\/practice-image:2/' deployment.yaml
+            cat deployment.yaml  # Verify the changes
             git remote add test-mailer https://dapper92:${TOKEN_GITHUB}@github.com/dapper92/test-mailer.git
             git add .
             git commit -m "Updated the helm 1"
             git push https://dapper92:${{ secrets.TOKEN_GITHUB }}@github.com/dapper92/test-mailer.git
+
 
 
 
