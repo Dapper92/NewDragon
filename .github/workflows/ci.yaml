@@ -42,7 +42,7 @@ jobs:
 
       - name: Build Image
         run: |
-          docker build -t dapper01/practice-image:2 .
+          docker build -t dapper01/practice-image:3 .
 
       - name: "Login to Docker Hub"
         uses: docker/login-action@v3
@@ -52,7 +52,7 @@ jobs:
 
       - name: "Push Image to  the Docker Hub"
         run: |
-          docker push dapper01/practice-image:2     
+          docker push dapper01/practice-image:3     
 
       - name: "Go to the repo for Helm"
         env:
@@ -62,7 +62,7 @@ jobs:
             git config --global user.name "dapper92"
             git clone https://github.com/dapper92/test-mailer.git test-mailer
             cd test-mailer/templates
-            sed -i 's/dapper01\/practice-image:2/dapper01\/practice-image:3/' deployment.yaml
+            sed -i 's/dapper01\/practice-image:3/dapper01\/practice-image:4/' deployment.yaml
             cat deployment.yaml  # Verify the changes
             git remote add test-mailer https://dapper92:${TOKEN_GITHUB}@github.com/dapper92/test-mailer.git
             git add .
